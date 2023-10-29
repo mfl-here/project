@@ -4,7 +4,7 @@ import csv
 flag = False
 def login(UID,PASS):
     global flag
-    with open(r"C:\Users\Fathima\Desktop\coding\+2 Project\Customer\customer_login.csv","r") as fr:
+    with open(r"C:\Users\Fathima\Desktop\coding\PROJECT+2\project\Customer\customer_login.csv","r") as fr:
         data = csv.reader(fr)
         while True:
             for i in data:
@@ -22,8 +22,8 @@ def login(UID,PASS):
 def signup():
     global flag
     lc=uc=sp=d=ss=0
-    with open (r"C:\Users\Fathima\Desktop\coding\+2 Project\Customer\customer_login.csv","a",newline="") as f:
-        with open(r"C:\Users\Fathima\Desktop\coding\+2 Project\Customer\customer_login.csv","r") as fr:
+    with open (r"C:\Users\Fathima\Desktop\coding\PROJECT+2\project\Customer\customer_login.csv","a",newline="") as f:
+        with open(r"C:\Users\Fathima\Desktop\coding\PROJECT+2\project\Customer\customer_login.csv","r") as fr:
             data = csv.reader(fr)
             w = csv.writer(f)
             l = []
