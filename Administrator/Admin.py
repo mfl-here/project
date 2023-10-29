@@ -3,7 +3,7 @@ import csv
 flag = False
 def login(AID,PASS):
     global flag
-    with open(r"C:\Users\Fathima\Desktop\coding\PROJECT+2\project\Administratoradmin_login.csv","r") as fr:
+    with open(r"C:\Users\Fathima\Desktop\coding\PROJECT+2\project\Administrator\admin_login.csv","r") as fr:
         data = csv.reader(fr)
         while True:
             for i in data:
