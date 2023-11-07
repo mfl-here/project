@@ -105,30 +105,80 @@ def cust_page():
                 elif search_opt == 2:
                     print("~~~~~~~PRICE RANGE~~~~~~~")
                     print("i) 5,000Rs - 10,000Rs \nii) 10,000Rs - 20,000Rs \niii) 20,000Rs - 30,000Rs \niv) 30,000Rs - 50,000Rs \nv) Above 50,000Rs")
-                    price_opt = int(input("Enter an option :"))
+                    price_opt =input("Enter an option :")
                     print("~~~~~~~COMPANY~~~~~~~")
                     print("i)Apple \nii) Google \niii) Nothing \niv) One Plus \nv) Oppo \nvi) Samsung \nvii) Vivo \nviii) Xiaomi")
-                    company_opt = int(input("Enter an option :"))
+                    company_opt = input("Enter an option :")
                     print("~~~~~~~OS~~~~~~~")
                     print("i)ios \nii)Android")
-                    os_opt = int(input("Enter an option :"))
+                    os_opt = input("Enter an option :")
                     print("~~~~~~~NETWORK~~~~~~~")
                     print("i) 4G \nii) 5G")
-                    network_opt = int(input("Enter an option :"))
+                    network_opt = input("Enter an option :")
                     print("~~~~~~~STORAGE~~~~~~~")
                     print("i) 16GB \nii) 32GB \niii) 64GB \niv)128GB \nv)256GB")
-                    storage_opt = int(input("Enter an option :"))
+                    storage_opt = input("Enter an option :")
                     print("~~~~~~~RAM~~~~~~~")
                     print("i) 4GB \nii) 6GB \niii) 8GB \niv) Above 8GB")
-                    ram_opt = int(input("Enter an option :"))
+                    ram_opt = input("Enter an option :")
                     print("~~~~~~~BATTERY~~~~~~~")
                     print("i) 3000mAh - 4000mAh \nii) 4000mAh - 5000mAh \niii) Above 5000mAh")
-                    battery_opt = int(input("Enter an option :"))
+                    battery_opt = input("Enter an option :")
                     print("~~~~~~~REAR CAMERA~~~~~~~")
-                    print("i) Upto 12MP \nii) 12MP \niii) 16MP \niv) 20MP \nv)24MP \nvi) 30MP \nvi) Above 30MP ")#Depending on dbms
-                    rear_opt = int(input("Enter an option :"))
+                    print("i) Upto 12MP \nii) 12MP \niii) 16MP \niv) 20MP \nv)24MP \nvi) 30MP \nvii) Above 30MP ")#Depending on dbms
+                    rear_opt = input("Enter an option :")
                     print("~~~~~~~FRONT CAMERA~~~~~~~")
                     print("i)")#depending on dbms
-                    front_opt = int(input("Enter an option :"))
+                    front_opt = input("Enter an option :")
 
-
+                    if storage_opt == "1":
+                        storage = "16GB"
+                    elif storage_opt == "2":
+                        storage = "32GB"
+                    elif storage_opt == "3":
+                        storage = "64GB"
+                    elif storage_opt == "4":
+                        storage = "128GB"#Space nooku
+                    elif storage_opt == "5":
+                        storage = "256GB"
+                    
+                    if ram_opt == "1":
+                        ram = "4 GB"
+                    elif ram_opt == "2":
+                        ram = "6 GB"#Space nooku
+                    elif ram_opt == "3":
+                        ram = "8 GB"
+                    elif ram_opt == "3":
+                        ram = ">8 GB"
+                    
+                    if battery_opt == "1":
+                        battery = ">=3000 mAh and <4000 mAh"
+                    elif battery_opt == "1":
+                        battery = ">=4000 mAh and <5000 mAh"#Space nooku!
+                    elif battery_opt == "1":
+                        battery = ">= 5000 mAh"
+                    
+                    if rear_opt == "1":
+                        rear = "<12 MP"
+                    elif rear_opt == "2":
+                        rear = "12 MP"
+                    elif rear_opt == "3":
+                        rear = "16 MP"#Range nooku!
+                    elif rear_opt == "4":
+                        rear = "20 MP"
+                    elif rear_opt == "5":
+                        rear = "24 MP"
+                    elif rear_opt == "6":
+                        rear = "30 MP"
+                    elif rear_opt == "7":
+                        rear = ">30 MP"
+                    
+                    if type(company) != None:
+                        #need to complete
+                        filter_query = "select * from {} where storage {} or ram {} or battery {} or rear {}".format(storage,ram,battery,rear) 
+                    else:
+                        for i in ["apple","samsung"]:#need to complete
+                            filter_query = "select * from {}where storage {} or ram {} or battery {} or rear {}".format(i,storage,ram,battery,rear)
+                            cur.execute(filter_query)
+                            for k in cur.fetchall():
+                                print(k) 
